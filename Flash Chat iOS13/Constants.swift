@@ -32,6 +32,6 @@ struct K {
         static let CollectionName = "messages"
         static let SenderField = "sender"
         static let BodyField = "body"
-        static let DateField = "date"
+        static let DateField = "createdAt"
     }
 }

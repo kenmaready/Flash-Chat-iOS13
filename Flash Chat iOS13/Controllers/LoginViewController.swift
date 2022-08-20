@@ -18,7 +18,19 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: UIButton) {
         let emailOption = emailTextfield.text
         let passwordOption = passwordTextfield.text
-        if let email = emailOption, let password = passwordOption {
+        
+        if var email = emailOption, var password = passwordOption {
+            // for convenience in testing phase only - remove for production:
+            if (email == "k") && (password == "k") {
+                email = "ken@example.com"
+                password = "123456"
+            }
+            
+            if (email == "j") && (password == "j") {
+                email = "julie@example.com"
+                password = "123456"
+            }
+            
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     ErrorAlert.show(message: e.localizedDescription, sender: self)
